@@ -1,0 +1,31 @@
+#include <iostream>
+
+//#define MAX 10000000
+
+using namespace std;
+
+int main() {
+	long n, i, a[100010], j, tmp;
+	while(cin >> n) {
+		//for(i = 2; i <= MAX - n; ++i) {
+		a[0] = 2;
+		tmp = 3;
+		for(j = 1; j < n; ) {
+			for(i = 0; i < j; ++i) {
+				if(tmp % a[i] == 0) {
+					tmp++;
+					break;
+				}
+			}
+			if(i == j) {
+				a[j++] = tmp;
+			}
+		}
+		for(j = 0; j < n; ++j) {
+			cout << a[j] << " ";
+		}
+		cout << "\n";
+	}
+	//}
+	return 0;
+}
